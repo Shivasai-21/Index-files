@@ -39,7 +39,7 @@ jobs:
 
       - name: Upload static website files to S3
         run: |
-          aws s3 sync ./website s3://${BUCKET_NAME} --acl public-read
+          aws s3 sync . s3://${BUCKET_NAME} --exclude "*" --include "index.html" --include "error.html" --acl public-read
 
       - name: Enable static website hosting
         run: |
