@@ -3,35 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to My S3 Website</title>
+  <title>CI/CD Deployment Demo</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f9;
-      color: #333;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f6f8;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
-      padding: 50px;
     }
     h1 {
-      color: #2c3e50;
+      color: #1a73e8;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #333;
     }
     p {
-      font-size: 18px;
+      max-width: 700px;
+      line-height: 1.6;
+      margin: 10px auto;
     }
-    footer {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    li {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px 20px;
+      margin: 8px 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .footer {
       margin-top: 40px;
-      font-size: 14px;
+      font-size: 0.9em;
       color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My S3 Bucket Website</h1>
-  <p>This is the default index.html page served from <strong>shivasai-s3-bucket-12345</strong>.</p>
-  <p>You can customize this page with your own content, styles, or scripts.</p>
-  
-  <footer>
-    &copy; 2026 Shivasai. All rights reserved.
-  </footer>
+  <h1>🚀 Automated Deployment Pipeline</h1>
+  <p>
+    This static website demonstrates a CI/CD workflow using GitHub Actions and Amazon S3.  
+    Every push to the repository triggers an automated pipeline that performs the following steps:
+  </p>
+
+  <ul>
+    <li>✔️ Checkout code from GitHub repository</li>
+    <li>✔️ Configure AWS credentials securely</li>
+    <li>✔️ Sync static files to Amazon S3 bucket</li>
+    <li>✔️ Serve content via S3 static website hosting</li>
+  </ul>
+
+  <p>
+    This setup highlights cloud automation, infrastructure as code, and continuous delivery practices.  
+    A simple but powerful demonstration of modern DevOps workflows.
+  </p>
+
+  <div class="footer">© 2026 — CI/CD Demo</div>
 </body>
 </html>
