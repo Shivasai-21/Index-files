@@ -1,5 +1,5 @@
 name: My-s3-static-website-hosting
-on: push
+on: workflow_dispatch
 
 jobs:
   deploy01:
