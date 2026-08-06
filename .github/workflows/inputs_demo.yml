@@ -21,7 +21,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     env:
       BUCKET_NAME: ${{ github.event.inputs.bucket_name }}
       AWS_REGION: ${{ github.event.inputs.region }}
