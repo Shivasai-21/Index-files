@@ -1,4 +1,4 @@
-name: My-s3-static-website
+name: My-s3-static-website-hosting
 on: push
 
 jobs:
