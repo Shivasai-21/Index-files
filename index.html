@@ -3,73 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CI/CD Deployment using github actions</title>
+  <title>MyFlix</title>
   <style>
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f4f6f8;
-      color: #2c3e50;
       margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
     }
-    h1 {
-      color: #1a73e8;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #000;
+    }
+    header h1 {
+      color: #e50914;
+      font-size: 24px;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .hero {
+      position: relative;
+      background: url('banner.jpg') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+    }
+    .hero-content {
+      max-width: 500px;
+    }
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    .hero button {
+      background-color: #e50914;
+      border: none;
+      padding: 10px 20px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .row {
+      padding: 20px;
+    }
+    .row h3 {
       margin-bottom: 10px;
     }
-    h2 {
-      margin-top: 30px;
-      color: #333;
+    .movies {
+      display: flex;
+      overflow-x: scroll;
     }
-    p {
-      max-width: 700px;
-      line-height: 1.6;
-      margin: 10px auto;
+    .movies img {
+      width: 200px;
+      margin-right: 10px;
+      border-radius: 4px;
+      transition: transform 0.3s;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-    li {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 10px 20px;
-      margin: 8px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #777;
+    .movies img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
-  <h1>🚀 Automated Deployment Pipeline</h1>
-  <p>
-    This static website demonstrates a CI/CD workflow using GitHub Actions and Amazon S3.  
-    Every push to the repository triggers an automated pipeline that performs the following steps:
-  </p>
+  <header>
+    <h1>MyFlix</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">TV Shows</a>
+      <a href="#">Movies</a>
+      <a href="#">My List</a>
+    </nav>
+  </header>
 
-  <ul>
-    <li>✔️ Checkout code from GitHub repository</li>
-    <li>✔️ Configure AWS credentials securely</li>
-    <li>✔️ Sync static files to Amazon S3 bucket</li>
-    <li>✔️ Serve content via S3 static website hosting</li>
-  </ul>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Featured Movie</h2>
+      <p>Watch the latest blockbuster now.</p>
+      <button>Play</button>
+      <button>More Info</button>
+    </div>
+  </section>
 
-  <p>
-    This setup highlights cloud automation, infrastructure as code, and continuous delivery practices.  
-    A simple but powerful demonstration of modern DevOps workflows.
-  </p>
+  <section class="row">
+    <h3>Popular on MyFlix</h3>
+    <div class="movies">
+      <img src="movie1.jpg" alt="Movie 1">
+      <img src="movie2.jpg" alt="Movie 2">
+      <img src="movie3.jpg" alt="Movie 3">
+      <img src="movie4.jpg" alt="Movie 4">
+    </div>
+  </section>
 
-  <div class="footer">© 2026 — CI/CD Demo</div>
+  <section class="row">
+    <h3>Trending Now</h3>
+    <div class="movies">
+      <img src="movie5.jpg" alt="Movie 5">
+      <img src="movie6.jpg" alt="Movie 6">
+      <img src="movie7.jpg" alt="Movie 7">
+      <img src="movie8.jpg" alt="Movie 8">
+    </div>
+  </section>
 </body>
 </html>
