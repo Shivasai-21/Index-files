@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - develop
+    
   pull_request:
     types: [opened, synchronize]
 
@@ -17,7 +17,7 @@ jobs:
         run: echo "build step"
 
   deploy:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.event.base_ref == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy step
