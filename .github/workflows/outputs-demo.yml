@@ -1,23 +1,43 @@
-name: outputs demo
+name: build and deploy static website to s3
 on:
   push:
     branches:
       - main
-jobs:
-  build:
-    outputs:
-      demo: ${{ steps.step1.outputs.version }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: step1
-        id: step1
-        run: echo "version=1.0.0" >> $GITHUB_OUTPUT
-      - name: step2
-        run: echo "The version is ${{ steps.step1.outputs.version }}"
+      - develop
+  pull_request:
+    opened
+    synchronize
+  jobs:
+    build:
+      if: github.event_name == 'pull_request' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: step3
-        run: echo "The version from the build job is ${{ needs.build.outputs.demo }}"
+        - name: Set up Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '16'
+
+        - name: Install dependencies
+          run: npm install
+
+        - name: Build static website
+          run: npm run build
+    deploy:
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/main' )
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Deploy to S3
+          uses: jakejarvis/s3-sync-action@v0.5.1
+          with:
+            args: --acl public-read --delete
+          env:
+            AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION: 'us-east-1'
