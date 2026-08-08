@@ -3,8 +3,7 @@ name: build and deploy static website to s3
 on:
   push:
     branches:
-      - main
-    
+      - main    
   pull_request:
     types: [opened, synchronize]
 
